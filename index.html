@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="description" content="KABook" />
+		<meta name="author" content="Levi DeHaan" />
+		<meta name="viewport" id="viewport" content="height=device-height,width=device-width,user-scalable=no"/>
+		<link rel="stylesheet" href="css/jquery.mobile.structure-1.0.1.css" />
+		<link rel="stylesheet" href="css/jquery.mobile-1.0.1.css" />
+		<link rel="stylesheet" href="css/main.css" />
+	</head>
+	<body>
+		<div id="loader">
+			<img src="images/trans-2-sm.png" style="margin-right: auto; padding-top: 225px; margin-left: auto; display: block;" />
+		</div>
+		<div id="main" data-role="page">
+			<div id="header" data-role="header"></div><!-- /header -->
+			<div id="content" data-theme="c">
+				<div id="contentmain" class="content-primary"></div><!-- /main -->
+				<div id="contentleft" class="content-secondary"></div><!-- /leftbar -->
+			</div><!-- /content -->
+			<div id="footer" data-role="footer"></div><!-- /footer -->
+		</div><!-- /page -->
+		<script id="header-template" type="text/x-jquery-tmpl">
+			<div id="logo"><p>for the Playbook</p></div>
+			<h1>{{=title}}</h1>
+			<div style="float:right; margin-top: 4px; margin-right: 15px;">
+			<a href="about.html" data-role="button" data-icon="info" data-transition="slidedown" data-theme="a">About</a>
+			</div>
+		</script>
+		<!-- templates for main content side -->
+		<script id="contentmain-template" type="text/x-jquery-tmpl">
+			{{=content}}
+		</script>
+		<script id="contentmain-lesson-template" type="text/x-jquery-tmpl">
+			<div class="ui-body ui-body-b">
+			<h1>{{=title}}</h1>
+			<img width="580" src="{{=download_urls.png}}" />
+			<p><strong>{{=Definition}}</strong><em>{{=DefinitionSource}}</em></p>
+			{{#if prerequisites}}
+			<p>Prerequisites:</p>
+			{{#each prerequisiteList}}
+			<p>{{=prereqName}}</p>
+			{{/each}}
+			{{/if}}
+			<div data-role="collapsible" data-collapsed="true" data-theme="a">
+			<h3>{{=title}} Video</h3>
+			<video id='{{=readable_id}}-Video' controls name="media" width="560" height="225" src="{{=download_urls.mp4}}"></video>
+			</div><!-- /collapsible -->
+			<div data-role="collapsible" data-theme="a" data-content-theme="a">
+			<h3>{{=display_name}} Excercise</h3>
+			This Opens the exercise in your browser, which is useful as it allows you to do the exercise and watch the video.
+			<a href="#" onclick="var args = new blackberry.invoke.BrowserArguments('{{=ka_url}}'); blackberry.invoke.invoke(blackberry.invoke.APP_BROWSER, args)">Open Exercise in your browser</a>
+
+			</div>
+			</div>
+		</script>
+		<!-- templates for left content side -->
+		<script id="contentleft-template" type="text/x-jquery-tmpl">
+			<ul id='playlists' data-role='listview' data-inset='true' >
+
+			{{#each playlists}}
+			<li id="{{=id}}">
+			<a href='#individual-playlist?playlist={{=id}}'>
+			<p>{{=standalone_title}}</p>
+			</a>
+			</li>
+			{{/each}}
+
+			</ul>
+		</script>
+		<!-- templates for footer -->
+		<script id="footer-template" type="text/x-jquery-tmpl">
+			{{=footer}}
+		</script>
+	</body>
+	<script src="js/jquery-1.7.1.min.js"></script>
+	<script src="js/jsrender.js"></script>
+	<script src="js/jquery.observable.js"></script>
+	<script src="js/jquery.views.js"></script>
+	<script src="js/amplify.min.js"></script>
+	<script src="js/amplifydef.js"></script>
+	<script src="js/ampRequests.js"></script>
+	<script src="js/hb_templates.js"></script>
+	<script src="js/jquery.mobile-1.0.1.min.js"></script>
+	<script src="js/jsOAuth-1.2.min.js"></script>
+	<script src="js/keystore.js"></script>
+	<script src="js/main.js"></script>
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:rim="http://www.blackberry.com/ns/widgets" version="1.0.0">
+	<name>KABook</name>
+	<author>Levi DeHaan</author>
+	<icon rim:hover="false" src="images/ka-86.png"/>
+	<icon rim:hover="true" src="images/ka-86.png"/>
+	<rim:loadingScreen backgroundColor="#000000"
+	foregroundImage="images/ka-480.png"
+	onLocalPageLoad="true">
+		<rim:transitionEffect type="fadeIn" direction="left" />
+	</rim:loadingScreen>
+	<content src="index.html"/>
+	<feature id="blackberry.app"/>
+	<feature id="blackberry.app.event"/>
+	<feature id="blackberry.invoke" />
+	<feature id="blackberry.invoke.BrowserArguments" />
+	<access subdomains="true" uri="http://khanacademy.org"/>
+	<access subdomains="true" uri="http://amazonaws.com"/>
+	<access subdomains="true" uri="http://duckduckgo.com"/>
+</widget>
