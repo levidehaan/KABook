@@ -19,4 +19,4 @@ I will also add you to the contributors list in the about section.
 
 ###Side note:
 Please don't download this and submit it to app world as a paid app, that is pretty much the only stipulation I make. 
-If you\'re going to write an app using this example code please make it original :)
+If you're going to write an app using this example code please make it original :)
