@@ -12,8 +12,8 @@ I will also add you to the contributors list in the about section.
 
 #Task List:
 
-* **Add Search** - A simple search bar in the header to search for specific topics on the left And the right columns
-* **Add Sort** - Add a sort function A-Z on subject type
+* **Add Search** - A simple search bar in the header to search for specific topics on the left And the right columns - Needs code refactor (/api/v1/playlists/library/list)
+* **Add Sort** - **Done** Add a sort function A-Z on subject type
 * **Add Khan Academy Login functionality** - Add the ability to link in your Khan Academy account so you can follow your learning path in the app
 
 

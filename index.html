@@ -9,8 +9,11 @@
 		<link rel="stylesheet" href="css/main.css" />
 	</head>
 	<body>
-		<div id="loader">
-			<img src="images/trans-2-sm.png" style="margin-right: auto; padding-top: 225px; margin-left: auto; display: block;" />
+		<div id="loader" style="margin-right: auto; padding-top: 225px; margin-left: auto; display: block; color: white;" align="center">
+			<img src="images/loadingtree.gif" />
+			<p style="color: white; font-size: 2em">
+				Please wait while content loads...
+			</p>
 		</div>
 		<div id="main" data-role="page">
 			<div id="header" data-role="header"></div><!-- /header -->
@@ -20,13 +23,15 @@
 			</div><!-- /content -->
 			<div id="footer" data-role="footer"></div><!-- /footer -->
 		</div><!-- /page -->
+		
 		<script id="header-template" type="text/x-jquery-tmpl">
 			<div id="logo"><p>for the BlackBerry PlayBook</p></div>
 			<h1>{{=title}}</h1>
 			<div style="float:right; margin-top: 4px; margin-right: 15px;">
-			<a href="about.html" data-role="button" data-icon="info" data-transition="slidedown" data-theme="a">About</a>
+			<a href="about.html" id="about" data-role="button" data-icon="info" data-transition="slidedown" data-theme="a">About</a>
 			</div>
 		</script>
+		
 		<!-- templates for main content side -->
 		<script id="contentmain-template" type="text/x-jquery-tmpl">
 			{{=content}}
@@ -37,10 +42,10 @@
 			<img width="580" src="{{=download_urls.png}}" />
 			<p><strong>{{=Definition}}</strong><em>{{=DefinitionSource}}</em></p>
 			{{#if prerequisites}}
-			<p>Prerequisites:</p>
-			{{#each prerequisiteList}}
-			<p>{{=prereqName}}</p>
-			{{/each}}
+				<p>Prerequisites:</p>
+				{{#each prerequisiteList}}
+					<p>{{=prereqName}}</p>
+				{{/each}}
 			{{/if}}
 			<div data-role="collapsible" data-collapsed="true" data-theme="a">
 			<h3>{{=title}} Video</h3>
@@ -56,14 +61,14 @@
 		</script>
 		<!-- templates for left content side -->
 		<script id="contentleft-template" type="text/x-jquery-tmpl">
-			<ul id='playlists' data-role='listview' data-inset='true' >
+			<ul id='playlists' data-role='listview' data-inset='true' data-filter="true">
 
 			{{#each playlists}}
-			<li id="{{=id}}">
-			<a href='#individual-playlist?playlist={{=id}}'>
-			<p>{{=standalone_title}}</p>
-			</a>
-			</li>
+				<li id="{{=id}}">
+				<a href='#individual-playlist?playlist={{=id}}'>
+				<p>{{=standalone_title}}</p>
+				</a>
+				</li>
 			{{/each}}
 
 			</ul>

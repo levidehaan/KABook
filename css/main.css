@@ -161,3 +161,15 @@
 	}
 }
 
+/*fix search filter*/
+.ui-listview-filter .ui-input-search {
+	margin-bottom: 20px;
+}
+
+/*image loader*/
+.ui-loading .ui-loader {
+	background-image: url("../images/loadingtree.gif");
+	background-repeat: no-repeat;
+	background-position: center center;
+	
+}

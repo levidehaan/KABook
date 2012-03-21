@@ -18,10 +18,7 @@
 					break;
 			}
 		} else {
-			////console.log("context: ");
-			////console.log(context);
-
-			////console.log("rendering: " + template + " onto: " + divm);
+			
 			$(divm).link(context, template);
 			$(template).template("ref");
 			$(divm).trigger('create');
@@ -32,14 +29,12 @@
 	};
 	//init the app, load all the basics first, then on to specialized things
 	$(document).live('pagebeforecreate', function(event) {
-		////console.log("pagebeforecreate loading page: ");
-		////console.log(event.target.id);
-
-		////console.log("Setting jQuery Mobile config...");
+		//console.log("Setting jQuery Mobile config...");
 		$.mobile.loadingMessage = "Loading Khan Academy Content";
 		if(event.target.id === "about") {
-			////console.log("about loading");
+			//console.log("about loading");
 			$('#main').page();
+			$('#about').hide();
 			$('#contentmain').hide();
 			$('#contentleft').hide();
 		}
@@ -72,14 +67,10 @@
 	$(document).bind("pagebeforechange", function(e, data) {
 		if( typeof data.toPage === "string") {
 			$.mobile.showPageLoadingMsg();
-			//console.log("intercepting pagebeforechange");
-			var u = $.mobile.path.parseUrl(data.toPage);
-			console.log("blackberry network:");
-			console.log(blackberry.network);
 
+			var u = $.mobile.path.parseUrl(data.toPage);
 			switch(true) {
 				case /^#individual-playlist/.test(u.hash):
-					//e.preventDefault();
 					var ref = u.hash.match(/\=(.*$)/);
 					$.when( function(playlist) {
 						var dfd = new $.Deferred();
@@ -91,7 +82,6 @@
 					break;
 
 				case /^#watchVideo/.test(u.hash):
-					//console.log("intercepting watchVideo");
 					var ref = u.hash.match(/\=(.*$)/), ref2 = ref[1].split("^");
 					$.when( function(id, ytid) {
 						var dfd = new $.Deferred();
@@ -109,22 +99,20 @@
 		}
 	});
 	function processPlaylist(data) {
-		////console.log(data)
 		if(data.playlist.length === 0) {
-			////console.log("playlist empty render sorry");
 			render('#contentmain-template', {
 				content : "Unfortunately there is no content available for this subject yet."
 			});
 		} else {
-			////console.log("playlist is not empty");
 			$('#contentmain').html("");
 			var playList = $("<ul/>", {
 				id : "playList",
 				"data-role" : "listview",
-				"data-inset" : "true"
+				"data-inset" : "true",
+				"data-filter" : "true"
 			});
 			$.each(data.playlist, function(index, value) {
-				////console.log(value);
+
 				var li = $("<li/>", {
 					id : value.readable_id
 				}), a = $("<a />", {
@@ -148,15 +136,9 @@
 		}
 	}
 
-	
-
 	function showLesson(data) {
-		////console.log(data);
 		$parentData = $('#' + data.lessonid).data("data");
-		////console.log("parent data: ");
-		////console.log($parentData);
-		////console.log("data.lesson: ");
-		////console.log(data);
+
 		if(data.lesson.length === 0) {
 			$.when( function($parentData) {
 				var dfd = new $.Deferred();
@@ -242,8 +224,7 @@
 			return dfd.promise();
 		}(query)).then(function(ddg) {
 			if(ddg.query !== null) {
-				////console.log("the ddg: ");
-				////console.log(ddg);
+
 				if(ddg.query.Definition !== "" && ddg.query.Definition !== null) {
 					defer.resolve(ddg);
 				} else {

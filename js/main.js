@@ -24,5 +24,6 @@ $('#aboutpagedone').live('click', function(e) {
 	setTimeout(function() {
 		$('#contentmain').show();
 		$('#contentleft').show();
+		$('#about').show();
 	}, 500);
-})
+});
