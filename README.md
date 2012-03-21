@@ -3,6 +3,7 @@
 The Open Source Khan Academy app for the BlackBerry PlayBook
 
 This is an opensource application written using the Khan Academy API
+
 It, like Khan Academy is a learning tool, meant to be used as a way to learn how to write apps for the PlayBook using WebWorks
 
 ##Contribute:
@@ -19,4 +20,4 @@ I will also add you to the contributors list in the about section.
 
 ###Side note:
 Please don't download this and submit it to app world as a paid app, that is pretty much the only stipulation I make. 
-If you\'re going to write an app using this example code please make it original :)
+If you're going to write an app using this example code please make it original :)
